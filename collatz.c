@@ -14,9 +14,6 @@ int collatz(int, int);
 int get_int(int *, int);
 void clear_buffer(void);
 
-/* segfault on completing collatz(), probably overwriting the stack somewhere
- */
-
 int main(void)
 {
   int n = 0, count = 0;
@@ -25,7 +22,8 @@ int main(void)
   
   printf("%d\n", n);
   printf("\nCollatz sequence completed in %d iterations", collatz(n, count));
-  printf('\n');
+  printf("\n");
+
   return EXIT_SUCCESS;
 }
 
@@ -107,7 +105,7 @@ void clear_buffer()
 {
    int c;
 
-   /* read until the end of the line or end-of-file */   
+   /* read until the end of the line or end-of-file */
    while ((c = fgetc(stdin)) != '\n' && c != EOF)
       ;
 
