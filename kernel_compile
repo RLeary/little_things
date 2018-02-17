@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Just for fun
+# For a new CentOS system
+
+su
+
+# Setup the enviromnent
+yum -y install wget emacs bc
+yum -y groupinstall 'Development Tools'
+
+# Get the source
+cd /root
+wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.tar.xz
+tar -xvJf linux-4.1.tar.xz
+
+# Copy existing config
+cp /boot/config-'uname -r' .config
+
+# Complile and install
+make
+make modules
+make modules_install
+make install
+
+# Observe old kernel version number
+uname -r
+
+# Specify new kernel as default
+# Edit /etc/grub.conf
+
+# Update the bootloader
+grub2-mkconfig -o "$(readlink /etc/grub2.conf)" > /boot/grub2/grub.cfg
+
+# Boot new kernel
+reboot
+
+# Display new kernel version
+uname -r
