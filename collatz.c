@@ -14,6 +14,9 @@ int collatz(int, int);
 int get_int(int *, int);
 void clear_buffer(void);
 
+/* segfault on completing collatz(), probably overwriting the stack somewhere
+ */
+
 int main(void)
 {
   int n = 0, count = 0;
