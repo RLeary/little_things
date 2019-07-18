@@ -15,3 +15,5 @@ def bin_to_hex(number):
 	return hex(bin_to_dec(number))
 	
 	
+	format - d - dec
+			c - char
