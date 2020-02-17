@@ -12,6 +12,7 @@ def is_square(n):
     # to the int we need
     root = math.sqrt(n)
     return n == int(root + 0.5) ** 2
+    # return roor.is_integer()
 
 print(is_square(4))
 print(is_square(7))
